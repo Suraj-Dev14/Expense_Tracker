@@ -1,15 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "GraphQL server for Expense Tracker",
+  "description": "",
   "license": "ISC",
   "author": "",
   "type": "module",
+  "main": "index.js",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build",
-    "start": "vercel start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
@@ -23,7 +22,6 @@
     "mongoose": "^8.16.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10",
-    "vercel": "^31.0.0"
+    "nodemon": "^3.0.1"
   }
 }

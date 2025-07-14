@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "builds": [
-    { "src": "api/expensetracker.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/expensetracker", "dest": "/api/expensetracker.js" }
-  ]
-}
