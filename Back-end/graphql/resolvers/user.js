@@ -73,7 +73,7 @@ const userResolver = {
 
       const token = jwt.sign(
         { userId: user.id, email: user.email },
-        process.env.JWT_SECRET || "somesupersecretkey",
+        "somesupersecretkey",
         { expiresIn: "1h" }
       );
 

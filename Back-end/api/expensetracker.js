@@ -10,14 +10,8 @@ import graphSchema from '../graphql/typedefs/index.js';
 import graphResolver from '../graphql/resolvers/index.js';
 import authMiddleware from '../middleware/authMiddleware.js';
 
-dotenv.config(); // Load environment variables
-
 const app = express();
-const MONGO_URI = process.env.MONGO_URI;
-
-if (!MONGO_URI) {
-  throw new Error("MONGO_URI not found in .env");
-}
+const MONGO_URI = "mongodb+srv://suraj1411003:IWEv2NdjQovbSxgB@expense-tracker.viiwnkm.mongodb.net/suraj_test?retryWrites=true&w=majority&"
 
 // Connect to MongoDB only once
 let isConnected = false;
