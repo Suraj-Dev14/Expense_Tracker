@@ -31,6 +31,8 @@ const connectToDB = async () => {
   console.log("Connected to MongoDB");
 };
 
+app.get("/", (req, res) => res.send("Expense Tracker API"));
+
 // CORS
 app.use(cors({
   origin: '*', // Restrict in production
