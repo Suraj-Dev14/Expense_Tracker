@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button.jsx";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card.jsx";
 import { useNavigate } from "react-router-dom";
 import { LogOut, User, Camera, Shield, Download } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Label } from "@radix-ui/react-label";
-import { Input } from "@/components/ui/input";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar.jsx";
+import { Label } from "@radix-ui/react-label.jsx";
+import { Input } from "@/components/ui/input.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";

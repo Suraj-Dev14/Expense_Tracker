@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card.jsx"
 import { ArrowUpRight, ArrowDownRight } from "lucide-react"
 
 export default function RecentTransactions({ transactions }) {

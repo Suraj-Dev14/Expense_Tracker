@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.jsx";
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { useState, useEffect } from "react";
@@ -7,24 +7,24 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/components/ui/dialog.jsx";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Calendar } from "@/components/ui/calendar";
+} from "@/components/ui/select.jsx";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group.jsx";
+import { Calendar } from "@/components/ui/calendar.jsx";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/components/ui/popover.jsx";
 import { cn } from "@/lib/utils";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label.jsx";
+import { Input } from "@/components/ui/input.jsx";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

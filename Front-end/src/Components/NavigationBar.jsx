@@ -1,6 +1,6 @@
 import { Home, Receipt, BarChart3, PiggyBank, User } from "lucide-react";
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "./ui/button.jsx";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.jsx";
 import {
   Plus,
   TrendingUp,
@@ -7,10 +7,10 @@ import {
   Target,
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import TransactionCard from "./TransactionCard";
-import RecentTransactions from "./RecentTransactions";
-import ExpenseChart from "./ExpenseChart";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card.jsx";
+import TransactionCard from "./TransactionCard.jsx";
+import RecentTransactions from "./RecentTransactions.jsx";
+import ExpenseChart from "./ExpenseChart.jsx";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

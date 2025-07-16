@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card.jsx";
 import { User, Camera, ArrowRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge.jsx";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar.jsx";
+import { Input } from "@/components/ui/input.jsx";
+import { Label } from "@/components/ui/label.jsx";
+import { Button } from "@/components/ui/button.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

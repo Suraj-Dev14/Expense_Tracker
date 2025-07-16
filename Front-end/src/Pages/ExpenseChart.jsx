@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card.jsx"
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts"
 
 const COLORS = [

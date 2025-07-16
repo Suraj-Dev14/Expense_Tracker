@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button.jsx";
+import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Home, Search, ArrowLeft, FileQuestion, Compass } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
