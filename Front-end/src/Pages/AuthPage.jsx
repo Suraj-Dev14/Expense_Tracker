@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/Components/ui/button";
-import { Card, CardContent, CardTitle, CardHeader } from "@/Components/ui/card";
-import { Checkbox } from "@/Components/ui/checkbox";
-import { Input } from "@/Components/ui/input";
-import { Label } from "@/Components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardTitle, CardHeader } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import axios from "axios";
 import { Mail, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";

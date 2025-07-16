@@ -1,14 +1,14 @@
-import { Button } from "@/Components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/Components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { LogOut, User, Camera, Shield, Download } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/Components/ui/Avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Label } from "@radix-ui/react-label";
-import { Input } from "@/Components/ui/input";
+import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 function convertToBase64(file) {
   return new Promise((resolve, reject) => {
@@ -68,7 +68,7 @@ const ProfilePage = () => {
 
       const transactions = res.data.data.getUserinfo.transactions;
 
-      if(transactions.length === 0) {
+      if (transactions.length === 0) {
         toast.error("No transactions found");
         return;
       }
@@ -129,7 +129,7 @@ const ProfilePage = () => {
     try {
       setIsUploading(true);
       const file = e.target.files[0];
-      if(file.size > 2 * 1024 * 1024){
+      if (file.size > 2 * 1024 * 1024) {
         toast.error("Image size should be less than 2MB");
         return;
       }
@@ -245,7 +245,9 @@ const ProfilePage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-slate-800">Profile & Settings</h1>
+          <h1 className="text-3xl font-bold text-slate-800">
+            Profile & Settings
+          </h1>
           <p className="text-slate-600 mt-1">
             Manage your account settings and preferences
           </p>
@@ -307,7 +309,9 @@ const ProfilePage = () => {
                 </div>
                 <p className="text-sm text-slate-500 text-center">
                   Click the camera icon to upload a profile picture <br />
-                  <span className="text-xs">JPG, PNG or JPEG Max size 2MB.</span>
+                  <span className="text-xs">
+                    JPG, PNG or JPEG Max size 2MB.
+                  </span>
                 </p>
               </div>
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/Components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Plus,
   Search,
@@ -8,16 +8,16 @@ import {
   Edit,
   Trash2,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/Components/ui/select";
-import { Input } from "@/Components/ui/input";
-import { Badge } from "@/Components/ui/badge";
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import TransactionCard from "./TransactionCard";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
@@ -123,8 +123,10 @@ const TransactionPage = () => {
       t.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
       t.category.toLowerCase().includes(searchTerm.toLowerCase());
 
-    const matchesCategory = filterCategory === "all" || t.category === filterCategory;
-    const matchesType = filterType === "all" || t.transactionType === filterType;
+    const matchesCategory =
+      filterCategory === "all" || t.category === filterCategory;
+    const matchesType =
+      filterType === "all" || t.transactionType === filterType;
 
     return matchesSearch && matchesCategory && matchesType;
   });
@@ -137,7 +139,9 @@ const TransactionPage = () => {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-slate-800">Transactions</h1>
-          <p className="text-slate-600 mt-1">Manage all your income and expenses</p>
+          <p className="text-slate-600 mt-1">
+            Manage all your income and expenses
+          </p>
         </div>
         <Button
           onClick={() => setAddTransaction(true)}
@@ -199,7 +203,9 @@ const TransactionPage = () => {
       {/* Transaction List */}
       <Card>
         <CardHeader>
-          <CardTitle>All Transactions ({filteredTransactions.length})</CardTitle>
+          <CardTitle>
+            All Transactions ({filteredTransactions.length})
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -229,16 +235,22 @@ const TransactionPage = () => {
                         <p className="font-medium text-slate-800 truncate">
                           {transaction.description}
                         </p>
-                        <Badge variant="secondary" className="text-xs whitespace-nowrap">
+                        <Badge
+                          variant="secondary"
+                          className="text-xs whitespace-nowrap"
+                        >
                           {transaction.category}
                         </Badge>
                       </div>
                       <p className="text-sm text-slate-500">
-                        {new Date(transaction.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })}
+                        {new Date(transaction.date).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          }
+                        )}
                       </p>
                     </div>
                   </div>
@@ -282,7 +294,9 @@ const TransactionPage = () => {
                 <div className="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-full flex items-center justify-center">
                   <Search className="w-8 h-8" />
                 </div>
-                <p className="text-lg font-medium mb-2">No transactions found</p>
+                <p className="text-lg font-medium mb-2">
+                  No transactions found
+                </p>
                 <p className="text-sm">Try adjusting your search or filters</p>
               </div>
             )}

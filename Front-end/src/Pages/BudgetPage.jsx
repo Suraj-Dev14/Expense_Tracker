@@ -4,10 +4,10 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/Components/ui/dialog";
-import { Button } from "@/Components/ui/button";
-import { Input } from "@/Components/ui/input";
-import { Label } from "@/Components/ui/label";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Plus,
   Target,
@@ -23,13 +23,13 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/Components/ui/select";
-import { Badge } from "@/Components/ui/badge";
-import { Progress } from "@/Components/ui/progress";
-import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const BudgetPage = () => {
   const [budgets, setBudgets] = useState([]);
@@ -40,9 +40,20 @@ const BudgetPage = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const categories = [
-    "Food & Dining", "Transportation", "Shopping", "Entertainment",
-    "Bills & Utilities", "Healthcare", "Education", "Travel",
-    "Groceries", "Salary", "Freelance", "Investment", "Gift", "Other",
+    "Food & Dining",
+    "Transportation",
+    "Shopping",
+    "Entertainment",
+    "Bills & Utilities",
+    "Healthcare",
+    "Education",
+    "Travel",
+    "Groceries",
+    "Salary",
+    "Freelance",
+    "Investment",
+    "Gift",
+    "Other",
   ];
 
   const getBudgets = async () => {
@@ -87,7 +98,8 @@ const BudgetPage = () => {
 
   const totalBudget = budgets.reduce((sum, b) => sum + b.limit, 0);
   const totalSpend = budgets.reduce((sum, b) => sum + b.spend, 0);
-  const overallProgress = totalBudget > 0 ? (totalSpend / totalBudget) * 100 : 0;
+  const overallProgress =
+    totalBudget > 0 ? (totalSpend / totalBudget) * 100 : 0;
 
   const handleAddBudget = async () => {
     if (!newCategory || !newLimit) {
@@ -221,12 +233,19 @@ const BudgetPage = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-slate-800">Budget Management</h1>
-          <p className="text-slate-600 mt-1">Set and track your spending limits by category</p>
+          <h1 className="text-3xl font-bold text-slate-800">
+            Budget Management
+          </h1>
+          <p className="text-slate-600 mt-1">
+            Set and track your spending limits by category
+          </p>
         </div>
         <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
           <DialogTrigger asChild>
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg" size="lg">
+            <Button
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg"
+              size="lg"
+            >
               <Plus className="w-5 h-5 mr-2" />
               Add Budget
             </Button>
@@ -237,8 +256,13 @@ const BudgetPage = () => {
             </DialogHeader>
             <div className="space-y-4">
               <div>
-                <Label className="mb-2" htmlFor="category">Category</Label>
-                <Select id="category" onValueChange={(value) => setNewCategory(value)}>
+                <Label className="mb-2" htmlFor="category">
+                  Category
+                </Label>
+                <Select
+                  id="category"
+                  onValueChange={(value) => setNewCategory(value)}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
@@ -252,10 +276,19 @@ const BudgetPage = () => {
                 </Select>
               </div>
               <div>
-                <Label className="mb-2" htmlFor="limit">Monthly Limit ($)</Label>
-                <Input id="limit" type="number" onChange={(e) => setNewLimit(e.target.value)} placeholder="500" />
+                <Label className="mb-2" htmlFor="limit">
+                  Monthly Limit ($)
+                </Label>
+                <Input
+                  id="limit"
+                  type="number"
+                  onChange={(e) => setNewLimit(e.target.value)}
+                  placeholder="500"
+                />
               </div>
-              <Button onClick={handleAddBudget} className="w-full">Add Budget</Button>
+              <Button onClick={handleAddBudget} className="w-full">
+                Add Budget
+              </Button>
             </div>
           </DialogContent>
         </Dialog>
@@ -273,19 +306,28 @@ const BudgetPage = () => {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <div>
-                <p className="text-2xl font-bold text-blue-800">${totalSpend.toLocaleString()} / ${totalBudget.toLocaleString()}</p>
-                <p className="text-sm text-blue-600">{overallProgress.toFixed(1)}% of total budget used</p>
+                <p className="text-2xl font-bold text-blue-800">
+                  ${totalSpend.toLocaleString()} / $
+                  {totalBudget.toLocaleString()}
+                </p>
+                <p className="text-sm text-blue-600">
+                  {overallProgress.toFixed(1)}% of total budget used
+                </p>
               </div>
               <Badge
                 variant={
-                  overallProgress > 90 ? "destructive"
-                    : overallProgress > 75 ? "secondary"
+                  overallProgress > 90
+                    ? "destructive"
+                    : overallProgress > 75
+                    ? "secondary"
                     : "default"
                 }
                 className="text-sm"
               >
-                {overallProgress > 90 ? "Over Budget"
-                  : overallProgress > 75 ? "Near Limit"
+                {overallProgress > 90
+                  ? "Over Budget"
+                  : overallProgress > 75
+                  ? "Near Limit"
                   : "On Track"}
               </Badge>
             </div>
@@ -297,7 +339,8 @@ const BudgetPage = () => {
       {/* Budget Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {budgets.map((budget) => {
-          const progress = budget.limit > 0 ? (budget.spend / budget.limit) * 100 : 0;
+          const progress =
+            budget.limit > 0 ? (budget.spend / budget.limit) * 100 : 0;
           const remaining = budget.limit - budget.spend;
 
           return (
@@ -306,14 +349,25 @@ const BudgetPage = () => {
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg">{budget.category}</CardTitle>
                   <div className="flex gap-1">
-                    <Button variant="ghost" size="sm" onClick={() => {
-                      setEditingBudget(budget);
-                      setNewCategory(budget.category);
-                      setNewLimit(Number(budget.limit.toString()));
-                    }} className="text-slate-500 hover:text-blue-600">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => {
+                        setEditingBudget(budget);
+                        setNewCategory(budget.category);
+                        setNewLimit(Number(budget.limit.toString()));
+                      }}
+                      className="text-slate-500 hover:text-blue-600"
+                    >
                       <Edit className="w-4 h-4" />
                     </Button>
-                    <Button variant="ghost" size="sm" onClick={() => handleDeleteBudget(budget._id)} className="text-slate-500 hover:text-red-600" disabled={isDeleting}>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => handleDeleteBudget(budget._id)}
+                      className="text-slate-500 hover:text-red-600"
+                      disabled={isDeleting}
+                    >
                       <Trash2 className="w-4 h-4" />
                     </Button>
                   </div>
@@ -323,11 +377,19 @@ const BudgetPage = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <div>
-                      <p className="text-2xl font-bold">${budget.spend.toLocaleString()}</p>
-                      <p className="text-sm text-slate-500">of ${budget.limit.toLocaleString()} budget</p>
+                      <p className="text-2xl font-bold">
+                        ${budget.spend.toLocaleString()}
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        of ${budget.limit.toLocaleString()} budget
+                      </p>
                     </div>
                     <div className="text-right">
-                      <p className={`font-semibold ${remaining >= 0 ? "text-green-600" : "text-red-600"}`}>
+                      <p
+                        className={`font-semibold ${
+                          remaining >= 0 ? "text-green-600" : "text-red-600"
+                        }`}
+                      >
                         ${Math.abs(remaining).toLocaleString()}
                       </p>
                       <p className="text-sm text-slate-500">
@@ -339,9 +401,22 @@ const BudgetPage = () => {
                     <div className="flex justify-between text-sm">
                       <span>{progress.toFixed(1)}% used</span>
                       <span className="flex items-center gap-1">
-                        {progress > 90 ? <><AlertTriangle className="w-3 h-3 text-red-500" /><span className="text-red-600">Over limit</span></>
-                          : progress > 75 ? <><AlertTriangle className="w-3 h-3 text-yellow-500" /><span className="text-yellow-600">Near limit</span></>
-                            : <><CheckCircle className="w-3 h-3 text-green-500" /><span className="text-green-600">On track</span></>}
+                        {progress > 90 ? (
+                          <>
+                            <AlertTriangle className="w-3 h-3 text-red-500" />
+                            <span className="text-red-600">Over limit</span>
+                          </>
+                        ) : progress > 75 ? (
+                          <>
+                            <AlertTriangle className="w-3 h-3 text-yellow-500" />
+                            <span className="text-yellow-600">Near limit</span>
+                          </>
+                        ) : (
+                          <>
+                            <CheckCircle className="w-3 h-3 text-green-500" />
+                            <span className="text-green-600">On track</span>
+                          </>
+                        )}
                       </span>
                     </div>
                     <Progress value={Math.min(progress, 100)} className="h-2" />
@@ -354,28 +429,51 @@ const BudgetPage = () => {
       </div>
 
       {/* Edit Dialog */}
-      <Dialog open={!!editingBudget} onOpenChange={() => setEditingBudget(null)}>
+      <Dialog
+        open={!!editingBudget}
+        onOpenChange={() => setEditingBudget(null)}
+      >
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Edit Budget</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
             <div>
-              <Label className="mb-2" htmlFor="category">Category</Label>
-              <Select id="category" value={newCategory} onValueChange={(value) => setNewCategory(value)}>
-                <SelectTrigger><SelectValue placeholder="Select a category" /></SelectTrigger>
+              <Label className="mb-2" htmlFor="category">
+                Category
+              </Label>
+              <Select
+                id="category"
+                value={newCategory}
+                onValueChange={(value) => setNewCategory(value)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a category" />
+                </SelectTrigger>
                 <SelectContent>
                   {categories.map((cat) => (
-                    <SelectItem key={cat} value={cat}>{cat}</SelectItem>
+                    <SelectItem key={cat} value={cat}>
+                      {cat}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
             <div>
-              <Label className="mb-2" htmlFor="edit-limit">Monthly Limit ($)</Label>
-              <Input id="edit-limit" type="number" value={newLimit} onChange={(e) => setNewLimit(e.target.value)} placeholder="500" />
+              <Label className="mb-2" htmlFor="edit-limit">
+                Monthly Limit ($)
+              </Label>
+              <Input
+                id="edit-limit"
+                type="number"
+                value={newLimit}
+                onChange={(e) => setNewLimit(e.target.value)}
+                placeholder="500"
+              />
             </div>
-            <Button onClick={handleEditBudget} className="w-full">Update Budget</Button>
+            <Button onClick={handleEditBudget} className="w-full">
+              Update Budget
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

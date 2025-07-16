@@ -1,4 +1,4 @@
-import { Button } from "@/Components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Plus,
   TrendingUp,
@@ -7,7 +7,7 @@ import {
   Target,
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import TransactionCard from "./TransactionCard";
 import RecentTransactions from "./RecentTransactions";
 import ExpenseChart from "./ExpenseChart";
@@ -212,7 +212,9 @@ const DashboardPage = () => {
 
         <Card className="bg-white/80 backdrop-blur-sm border border-slate-200 shadow-lg h-[450px]">
           <CardHeader>
-            <CardTitle className="text-slate-800">Recent Transactions</CardTitle>
+            <CardTitle className="text-slate-800">
+              Recent Transactions
+            </CardTitle>
           </CardHeader>
           <CardContent className="h-[95%]">
             <RecentTransactions transactions={transactions} />

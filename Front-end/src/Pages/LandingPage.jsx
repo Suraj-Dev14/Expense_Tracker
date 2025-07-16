@@ -1,6 +1,6 @@
-import { Button } from "@/Components/ui/button";
-import { Card, CardContent } from "@/Components/ui/card";
-import { Badge } from "@/Components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   ArrowRight,
   TrendingUp,
@@ -13,7 +13,7 @@ import {
   Shield,
   Smartphone,
   Users,
-  Star
+  Star,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";

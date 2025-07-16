@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader } from "@/Components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { User, Camera, ArrowRight } from "lucide-react";
-import { Badge } from "@/Components/ui/badge";
-import { Avatar, AvatarImage, AvatarFallback } from "@/Components/ui/avatar";
-import { Input } from "@/Components/ui/input";
-import { Label } from "@/Components/ui/label";
-import { Button } from "@/Components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ function convertToBase64(file) {
 
 const ProfileCompletionPage = () => {
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (!localStorage.getItem("userId")) {
       navigate("/auth");
