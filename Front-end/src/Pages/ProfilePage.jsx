@@ -38,7 +38,7 @@ const ProfilePage = () => {
       const token = localStorage.getItem("Token");
 
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}expensetracker`,
+        `https://expense-tracker-y9ar.onrender.com/expensetracker`,
         {
           query: `
           query getUserinfo {
@@ -153,7 +153,7 @@ const ProfilePage = () => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}expensetracker`,
+        `https://expense-tracker-y9ar.onrender.com/expensetracker`,
         {
           query: `
             mutation update($user: updateUserInput) {
@@ -195,7 +195,7 @@ const ProfilePage = () => {
     try {
       const token = localStorage.getItem("Token");
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}expensetracker`,
+        `https://expense-tracker-y9ar.onrender.com/expensetracker`,
         {
           query: `
             query getUser {

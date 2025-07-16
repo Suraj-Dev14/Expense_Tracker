@@ -39,7 +39,7 @@ const AnalyticsPage = () => {
   const getTransactions = async () => {
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}expensetracker`,
+        `https://expense-tracker-y9ar.onrender.com/expensetracker`,
         {
           query: `
             query getUserinfo {

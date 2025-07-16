@@ -80,7 +80,7 @@ const TransactionCard = ({ transaction, setTransaction, refetch }) => {
     try {
       if (transaction) {
         const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}expensetracker`,
+          `https://expense-tracker-y9ar.onrender.com/expensetracker`,
           {
             query: `
               mutation updateTransaction($transactionId: ID!,$transaction: transactionInput!) {
@@ -117,7 +117,7 @@ const TransactionCard = ({ transaction, setTransaction, refetch }) => {
         toast.success("Transaction updated successfully!");
       } else {
         const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}expensetracker`,
+          `https://expense-tracker-y9ar.onrender.com/expensetracker`,
           {
             query: `
               mutation addTransaction($transaction: transactionInput!) {

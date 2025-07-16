@@ -48,7 +48,7 @@ const BudgetPage = () => {
   const getBudgets = async () => {
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}expensetracker`,
+        `https://expense-tracker-y9ar.onrender.com/expensetracker`,
         {
           query: `
             query getUserinfo {
@@ -96,7 +96,7 @@ const BudgetPage = () => {
     }
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}expensetracker`,
+        `https://expense-tracker-y9ar.onrender.com/expensetracker`,
         {
           query: `
             mutation addBudget($budget: budgetInput!) {
@@ -138,7 +138,7 @@ const BudgetPage = () => {
     try {
       setIsDeleting(true);
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}expensetracker`,
+        `https://expense-tracker-y9ar.onrender.com/expensetracker`,
         {
           query: `
             mutation deleteBudget($budgetId: ID!) {
@@ -176,7 +176,7 @@ const BudgetPage = () => {
     }
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}expensetracker`,
+        `https://expense-tracker-y9ar.onrender.com/expensetracker`,
         {
           query: `
             mutation updateBudget($budgetId: ID!, $budget: budgetInput!) {
