@@ -1,6 +1,6 @@
 import { Home, Receipt, BarChart3, PiggyBank, User } from "lucide-react";
 import { useState } from "react";
-import { Button } from "./ui/button.jsx";
+import { Button } from "./components/ui/button.jsx";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
@@ -11,16 +11,22 @@ const navItems = [
     icon: Receipt,
     path: "/app/transactions",
   },
-  { id: "analytics", label: "Analytics", icon: BarChart3, path: "/app/analytics" },
+  {
+    id: "analytics",
+    label: "Analytics",
+    icon: BarChart3,
+    path: "/app/analytics",
+  },
   { id: "budget", label: "Budget", icon: PiggyBank, path: "/app/budget" },
   { id: "profile", label: "Profile", icon: User, path: "/app/profile" },
 ];
 
 const NavigationBar = () => {
-
   const location = useLocation();
   const currentPath = location.pathname;
-  const [activeTab, setActiveTab] = useState(navItems.find((item) => item.path === currentPath)?.id || "dashboard");
+  const [activeTab, setActiveTab] = useState(
+    navItems.find((item) => item.path === currentPath)?.id || "dashboard"
+  );
 
   const navigate = useNavigate();
 
@@ -86,9 +92,9 @@ const NavigationBar = () => {
                 size="sm"
                 className={classes}
                 onClick={() => {
-                    setActiveTab(item.id);
-                    navigate(item.path);
-                  }}
+                  setActiveTab(item.id);
+                  navigate(item.path);
+                }}
               >
                 <Icon className="w-5 h-5" />
                 <span className="text-xs">{item.label}</span>
