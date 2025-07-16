@@ -171,17 +171,8 @@ const LandingPage = () => {
                 }}
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white text-lg px-8 py-3"
               >
-                Start Free Trial
+                Start Now
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => {
-                  navigate("/auth");
-                }}
-              >
-                Watch Demo
               </Button>
             </div>
           </div>
@@ -474,18 +465,8 @@ const LandingPage = () => {
               }}
               className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-3"
             >
-              Start Your Free Trial
+              Start Tracking Now
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => {
-                navigate("/auth");
-              }}
-              className="border-white hover:bg-white hover:text-blue-600 text-lg px-8 py-3"
-            >
-              Sign In
             </Button>
           </div>
         </div>

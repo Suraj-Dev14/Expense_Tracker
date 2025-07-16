@@ -5,7 +5,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/Components/ui/avatar";
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
 import { Button } from "@/Components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -21,10 +21,13 @@ function convertToBase64(file) {
 }
 
 const ProfileCompletionPage = () => {
-
-  if(!localStorage.getItem("userId")) {
-    navigate("/auth");
-  };
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (!localStorage.getItem("userId")) {
+      navigate("/auth");
+    }
+  }, []);
 
   const [profileData, setProfileData] = useState({
     name: "",
@@ -35,7 +38,6 @@ const ProfileCompletionPage = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isUploading, setUploading] = useState(false);
-  const navigate = useNavigate();
 
   const handleComplete = async (e) => {
     e.preventDefault();

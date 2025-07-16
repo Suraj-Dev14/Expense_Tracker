@@ -2,9 +2,7 @@ import { Button } from "@/Components/ui/button";
 import {
   Plus,
   TrendingUp,
-  ArrowUpRight,
   TrendingDown,
-  ArrowDownRight,
   DollarSign,
   Target,
 } from "lucide-react";
@@ -155,10 +153,6 @@ const DashboardPage = () => {
             <div className="text-2xl font-bold text-green-800">
               ${totalIncome.toLocaleString()}
             </div>
-            <div className="flex items-center text-xs text-green-600 mt-1">
-              <ArrowUpRight className="w-3 h-3 mr-1" />
-              +12% from last month
-            </div>
           </CardContent>
         </Card>
 
@@ -172,10 +166,6 @@ const DashboardPage = () => {
           <CardContent>
             <div className="text-2xl font-bold text-red-800">
               ${totalExpenses.toLocaleString()}
-            </div>
-            <div className="flex items-center text-xs text-red-600 mt-1">
-              <ArrowDownRight className="w-3 h-3 mr-1" />
-              -5% from last month
             </div>
           </CardContent>
         </Card>
@@ -191,10 +181,6 @@ const DashboardPage = () => {
             <div className="text-2xl font-bold text-blue-800">
               ${totalSavings.toLocaleString()}
             </div>
-            <div className="flex items-center text-xs text-blue-600 mt-1">
-              <ArrowUpRight className="w-3 h-3 mr-1" />
-              +8% from last month
-            </div>
           </CardContent>
         </Card>
 
@@ -208,9 +194,6 @@ const DashboardPage = () => {
           <CardContent>
             <div className="text-2xl font-bold text-purple-800">
               ${todayExpenses.toLocaleString()}
-            </div>
-            <div className="text-xs text-purple-600 mt-1">
-              {todayTransactions.length} transactions today
             </div>
           </CardContent>
         </Card>
