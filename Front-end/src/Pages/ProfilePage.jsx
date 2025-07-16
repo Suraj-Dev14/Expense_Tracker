@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card.j
 import { useNavigate } from "react-router-dom";
 import { LogOut, User, Camera, Shield, Download } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar.jsx";
-import { Label } from "@radix-ui/react-label.jsx";
+import { Label } from "@/components/ui/label.jsx";
 import { Input } from "@/components/ui/input.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
