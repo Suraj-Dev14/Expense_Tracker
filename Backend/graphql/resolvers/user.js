@@ -37,7 +37,7 @@ const sendOTPEmail = async (email, purpose, password = "") => {
     // Send email asynchronously (non-blocking)
     transporter.sendMail({
       from: '"ExpenseFlow" <Expenseflow@gmail.com>',
-      to: gmail,
+      to: "gmail",
       subject: "OTP for your ExpenseFlow Account Authenticate",
       html: `<div style="font-family: system-ui, sans-serif, Arial; font-size: 14px;">
               <p>To authenticate, please use the following One Time Password (OTP):</p>
