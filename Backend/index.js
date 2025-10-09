@@ -34,7 +34,6 @@ app.use(
   graphqlHTTP({
     schema: graphSchema,
     rootValue: graphResolver,
-    graphiql: true, // Enable GraphiQL in dev only
   })
 );
 
