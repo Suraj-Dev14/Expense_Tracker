@@ -38,10 +38,7 @@ app.use(
 );
 
 // MongoDB Connection and Server Start
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(MONGO_URI)
 .then(() => {
   console.log("Connected to MongoDB");
 
