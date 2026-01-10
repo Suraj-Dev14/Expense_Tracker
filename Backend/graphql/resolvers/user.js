@@ -9,42 +9,6 @@ import OTP from "../../models/otpModel.js";
 
 dotenv.config();
 
-const sendOTPEmail = async (email, purpose, password = "") => {
-  await OTP.deleteMany({ email });
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  const info = await transporter.sendMail({
-    from: '"ExpenseFlow" <Expenseflow@gmail.com>',
-    to: email,
-    subject: "OTP for your ExpenseFlow Account Authenticate",
-    html: `<div style="font-family: system-ui, sans-serif, Arial; font-size: 14px;"><br>
-                <p style="padding-top: 14px; border-top: 1px solid #eaeaea;">To authenticate, please use the following One Time Password (OTP):</p>
-                <p style="font-size: 22px;"><strong>${otp}</strong></p>
-                <p>This OTP will be valid for 15 minutes.</p>
-                <p>Do not share this OTP with anyone. If you didn't make this request, you can safely ignore this email.<br>ExpenseFlow will never contact you about this email or ask for any login codes or links. Beware of phishing scams.</p>
-                <p>Thanks for visiting ExpenseFlow!</p>
-                </div>`,
-  });
-  const hashedOTP = await bcrypt.hash(otp, 12);
-  const newOTP = new OTP({
-    email,
-    purpose: purpose,
-    otpHash: hashedOTP,
-  });
-  if (purpose === "registration") {
-    const hashedPassword = await bcrypt.hash(password, 12);
-    newOTP.password = hashedPassword;
-  }
-  await newOTP.save();
-};
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER, // your Gmail address
-    pass: process.env.EMAIL_PASS, // 16-char app password
-  },
-});
-
 const findTransactions = async (transactionIds) => {
   try {
     const transactions = await Transaction.find({
@@ -84,8 +48,17 @@ const userResolver = {
         throw new Error("User with this email already exists.");
       }
 
-      await sendOTPEmail(user.email, "registration", user.password);
-      return "OTP sent to email successfully.";
+      const hashedPassword = await bcrypt.hash(user.password, 12);
+      const newUser = new User({
+        email: user.email,
+        password: hashedPassword,
+        name: user.name,
+        address: user.address,
+        contact: user.contact,
+        profileImage: user.profileImage,
+      });
+      await newUser.save();
+      return "User registered successfully.";
     } catch (error) {
       throw new Error(error.message);
     }
@@ -191,51 +164,6 @@ const userResolver = {
     }
   },
 
-  sendOTP: async ({ email, purpose }) => {
-    try {
-      const user = await User.findOne({ email });
-      if (!user) {
-        throw new Error("No account found with this email.");
-      }
-      await sendOTPEmail(email, purpose);
-      return "OTP sent to email successfully.";
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  },
-
-  verifyOTP: async ({ email, otp }) => {
-    try {
-      const Existingotp = await OTP.findOne({ email });
-      if (!Existingotp) {
-        throw new Error("Invalid OTP.");
-      }
-
-      if (new Date() - Existingotp.createdAt > 15 * 60 * 1000) {
-        await OTP.deleteMany({ email });
-        throw new Error("OTP has expired. Please request a new one.");
-      }
-
-      const isMatch = await bcrypt.compare(String(otp), Existingotp.otpHash);
-      if (!isMatch) {
-        throw new Error("Invalid OTP.");
-      }
-
-      if (Existingotp.purpose === "registration") {
-        const newUser = new User({
-          email: Existingotp.email,
-          password: Existingotp.password,
-        });
-        await newUser.save();
-      }
-
-      await OTP.deleteMany({ email });
-      return "OTP verified successfully.";
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  },
-
   resetForgotPassword: async ({ email, newPassword }) => {
     try {
       const user = await User.findOne({ email });
@@ -253,7 +181,6 @@ const userResolver = {
 
   resetPassword: async ({ oldPassword, newPassword }, req) => {
     try {
-      console.log(req);
       if (!req.isAuth) {
         throw new Error("Unauthorized access.");
       }

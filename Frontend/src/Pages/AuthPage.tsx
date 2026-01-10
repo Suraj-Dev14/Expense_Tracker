@@ -128,9 +128,9 @@ export default function AuthPage() {
           return
         }
         localStorage.setItem("expenseFlowUserEmail", email);
-        toast.success("An OTP has been sent to your email");
+        toast.success("Registration successful!");
 
-        navigate("/otp-verification");
+        navigate("/profile-completion")
       }
     } catch (err: any) {
       toast.error(err.message || "Something went wrong. Please try again.");

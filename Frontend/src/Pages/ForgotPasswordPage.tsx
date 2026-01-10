@@ -57,46 +57,7 @@ export default function ForgotPasswordPage() {
   // Handle email submission
   const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-
-    if (!email) {
-      toast.error("Please enter your email address");
-      setLoading(false);
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      toast.error("Please enter a valid email address");
-      setLoading(false);
-      return;
-    }
-
-    // Send email with OTP
-
-    try {
-      const res = await axios.post(import.meta.env.VITE_BACKEND_URL, {
-        query: `
-                    query sendOTP($email: String!, $purpose: String!) {
-                      sendOTP(email: $email, purpose: $purpose)
-                    }
-                  `,
-        variables: { email, purpose: "forgotPassword" },
-      });
-
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      if (res.data.errors) {
-        toast.error(res.data.errors[0]?.message);
-        return
-      }
-
-      toast.success("OTP sent successfully to your email!");
-      setCurrentStep("otp");
-      startOtpTimer();
-    } catch (error: any) {
-      toast.error(error || "Failed to send OTP. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    toast.info("Due to resource constraints, password reset is currently disabled.");
   };
 
   // Handle OTP input change

@@ -3,7 +3,6 @@ import LandingPage from "./Pages/LandingPage";
 import AuthPage from "./Pages/AuthPage";
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
 import ProfileCompletionPage from "./Pages/ProfileCompletionPage";
-import OTPVerificationPage from "./Pages/OTPVerificationPage";
 import ProtectedRoute from "./ProtectedRoute";
 import Layout from "./Layout";
 import DashboardPage from "./Pages/DashboardPage";
@@ -20,7 +19,6 @@ const App = () => {
       <Route path="/auth" element={<AuthPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/profile-completion" element={<ProfileCompletionPage />} />
-      <Route path="/otp-verification" element={<OTPVerificationPage />} />
       <Route
         path="/app"
         element={
