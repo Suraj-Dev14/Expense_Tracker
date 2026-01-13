@@ -60,8 +60,14 @@ export default function AuthPage() {
       return;
     }
 
-    const email = formData.email;
+    const email = formData.email.toLowerCase();
     const password = formData.password;
+
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
 
     try {
       if (isLogin) {
