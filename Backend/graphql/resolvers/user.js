@@ -3,9 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import Transaction from "../../models/transactionModel.js";
 import Budget from "../../models/budgetModel.js";
-import nodemailer from "nodemailer";
 import dotenv from "dotenv";
-import OTP from "../../models/otpModel.js";
 
 dotenv.config();
 
